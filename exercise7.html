@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise #7: Simple playlist</title>
+    <link rel="stylesheet" href="exercise7.css" />
+  </head>
+  <body>
+    <form>
+      <input type="text" id="songTextInput" size="40" placeholder="Song name" />
+      <input type="button" id="addButton" value="Add Song" />
+    </form>
+
+    <ul id="playlist"></ul>
+    <script>
+      let input = document.querySelector('#songTextInput')
+      let add = document.querySelector('#addButton')
+      let list = document.querySelector('#playlist')
+      add.addEventListener('click', () => {
+        if (input.value === '') {
+          return
+        } else {
+          let newLi = document.createElement('li')
+          let newSpan = document.createElement('div')
+          newLi.innerText = input.value
+        //   input.value = ''
+          newSpan.textContent = 'X'
+          newSpan.style.cursor = "pointer"
+          list.appendChild(newLi)
+          newLi.appendChild(newSpan)
+          newSpan.addEventListener('click', function () {
+            newLi.remove()
+          })
+        }
+      })
+    </script>
+  </body>
+</html>

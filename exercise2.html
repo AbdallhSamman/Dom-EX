@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #2: Changing colors</title>
+    <style>
+        #mydiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        /* TODO: write JS code here */
+    </script>
+</head>
+<body>
+<div id="mydiv"></div>
+
+<script>
+    let counter=0;
+    function generateRandomColor()
+{
+    var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    return randomColor;
+}
+   let test = document.getElementById("mydiv")
+   test.style.background=generateRandomColor() 
+test.addEventListener("click", function () {counter++;colorChange()})
+function colorChange()
+{
+if(counter===1)
+test.style.backgroundColor="green"
+else if(counter===2)
+test.style.backgroundColor="red"
+else if (counter===3)
+test.style.backgroundColor="yellow"
+else if (counter===4)
+test.style.backgroundColor=generateRandomColor()
+else
+counter=0
+}
+</script>
+
+
+
+
+</body>
+</html>

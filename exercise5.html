@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #5: Input check</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+
+        .err {
+            color: red;
+            font-size: 0.7em;
+        }
+    </style>
+    
+</head>
+<body>
+
+<form name="pw">
+    <table>
+        <tr>
+            <td>Password (min 6 characters):</td>
+            <td><input type="password" name="password1" id="password1" size="10" placeholder="Password"></td>
+            <td>
+                <div id="pw1_check" class="err"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Repeat password:</td>
+            <td><input type="password" name="password2" id="password2" size="10" placeholder="Password"></td>
+            <td>
+                <div id="pw2_check" class="err"></div>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit" id="submitBtn"/>
+</form>
+
+<script>
+  let passField1=document.querySelector('#password1')
+  let passField2=document.querySelector('#password2')
+  let check1=document.querySelector('#pw1_check')
+  let check2=document.querySelector('#pw2_check')
+  let subBtn=document.querySelector('#submitBtn')
+
+  subBtn.style.display="none"
+passField1.addEventListener('keyup',()=> {
+    if(passField1.value.length<=6){
+        check1.textContent='too short'
+        subBtn.style.display="none"
+    }
+ else{
+    check1.textContent=''
+    
+ }
+})
+
+passField2.addEventListener('keyup',()=>{
+    if(passField1.value===passField2.value){
+        subBtn.style.display=""
+        check2.textContent=''
+    }
+ else{
+    check2.textContent='pasword dont match'
+    subBtn.style.display="none"
+ }
+})
+
+</script>
+</body>
+</html>
+
